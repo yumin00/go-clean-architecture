@@ -1,7 +1,7 @@
 package config
 
 import (
-	userPb "github.com/yumin00/go-hexagonal/go-hexagonal-proto/go-api/core/user"
+	userPb "github.com/yumin00/go-hexagonal/go-proto/go-api/core/user"
 	"google.golang.org/grpc"
 )
 

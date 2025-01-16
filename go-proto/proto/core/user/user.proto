@@ -3,7 +3,7 @@ package user;
 
 import "google/api/annotations.proto";
 
-option go_package = "github.com/yumin00/go-hexagonal/go-hexagonal-proto/go-api/core/user";
+option go_package = "github.com/yumin00/go-hexagonal/go-proto/go-api/core/user";
 
 service UserData {
     rpc GetUserInfoById(GetUserInfoByIdRequest) returns (GetUserInfoByIdResponse) {

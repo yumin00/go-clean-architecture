@@ -9,7 +9,7 @@ import (
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"github.com/yumin00/go-hexagonal/core/config"
-	pb "github.com/yumin00/go-hexagonal/go-hexagonal-proto/go-api/core/user"
+	pb "github.com/yumin00/go-hexagonal/go-proto/go-api/core/user"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )

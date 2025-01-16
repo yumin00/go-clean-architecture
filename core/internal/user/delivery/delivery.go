@@ -2,8 +2,8 @@ package delivery
 
 import (
 	"context"
-	pb "github.com/yumin00/go-hexagonal/go-hexagonal-proto/go-api/core/user"
 	"github.com/yumin00/go-hexagonal/core/domain"
+	pb "github.com/yumin00/go-hexagonal/go-proto/go-api/core/user"
 )
 
 type Server struct {
