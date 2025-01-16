@@ -1,0 +1,29 @@
+syntax = "proto3";
+package user;
+
+import "google/api/annotations.proto";
+
+option go_package = "github.com/yumin00/go-hexagonal/go-hexagonal-proto/go-api/core/user";
+
+service UserData {
+    rpc GetUserInfoById(GetUserInfoByIdRequest) returns (GetUserInfoByIdResponse) {
+        option (google.api.http) = {
+            get: "/v1/user/info/{id}"
+        };
+    }
+}
+
+message UserInfo {
+    int32 id = 1;
+    string name = 2;
+    string email = 3;
+    string profile_image_url = 4;
+}
+
+message GetUserInfoByIdRequest {
+    int32 id = 1;
+}
+
+message GetUserInfoByIdResponse {
+    optional UserInfo userInfo = 1;
+}
