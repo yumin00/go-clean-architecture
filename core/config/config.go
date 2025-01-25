@@ -2,12 +2,13 @@ package config
 
 import (
 	"fmt"
-	"log"
-
 	"github.com/spf13/viper"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"log"
 )
+
+var LoadedConfig *Config
 
 type Config struct {
 	Server   ServerConfig
@@ -17,6 +18,7 @@ type Config struct {
 type ServerConfig struct {
 	GRPCPort string
 	HTTPPort string
+	//GRPCListner net.Listener
 }
 
 type DatabaseConfig struct {
@@ -29,34 +31,36 @@ type DatabaseConfig struct {
 
 var DB *gorm.DB
 
-func Init() {
-	cfg, err := LoadConfig()
+func Setup() {
+	err := LoadEnv()
 	if err != nil {
 		log.Fatalf("Failed to load config: %v", err)
 	}
 
-	DB, err = NewPostgresDB(cfg.Database)
+	DB, err = NewPostgresDB(LoadedConfig.Database)
 	if err != nil {
 		log.Fatalf("Failed to connect to database: %v", err)
 	}
 }
 
-func LoadConfig() (*Config, error) {
+func LoadEnv() error {
 	viper.SetConfigName("config")
 	viper.SetConfigType("yaml")
 	viper.AddConfigPath(".")
 	viper.AddConfigPath("./config")
 
 	if err := viper.ReadInConfig(); err != nil {
-		return nil, err
+		return err
 	}
 
 	var config Config
 	if err := viper.Unmarshal(&config); err != nil {
-		return nil, err
+		return err
 	}
 
-	return &config, nil
+	LoadedConfig = &config
+
+	return nil
 }
 
 func NewPostgresDB(cfg DatabaseConfig) (*gorm.DB, error) {
