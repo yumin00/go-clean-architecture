@@ -1,4 +1,4 @@
-module github.com/yumin00/go-hexagonal
+module github.com/yumin00/go-clean-architecture
 
 go 1.22.3
 

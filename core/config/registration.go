@@ -1,9 +1,9 @@
 package config
 
 import (
-	userDelivery "github.com/yumin00/go-hexagonal/core/internal/user/delivery"
-	userRepository "github.com/yumin00/go-hexagonal/core/internal/user/repository/db"
-	userUsecase "github.com/yumin00/go-hexagonal/core/internal/user/usecase"
+	userDelivery "github.com/yumin00/go-clean-architecture/core/internal/user/delivery"
+	userRepository "github.com/yumin00/go-clean-architecture/core/internal/user/repository/db"
+	userUsecase "github.com/yumin00/go-clean-architecture/core/internal/user/usecase"
 )
 
 func NewUserServer() *userDelivery.Server {

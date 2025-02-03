@@ -3,7 +3,7 @@ package usecase
 import (
 	"context"
 
-	"github.com/yumin00/go-hexagonal/core/domain"
+	"github.com/yumin00/go-clean-architecture/core/domain"
 )
 
 type userUseCase struct {
